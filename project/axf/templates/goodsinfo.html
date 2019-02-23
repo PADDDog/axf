@@ -1,0 +1,25 @@
+{% extends 'base.html'%}
+{% load staticfiles %}
+
+{% block linkscript %}
+<link rel="stylesheet" type="text/css" href="{% static 'market/css/goodsinfo.css' %}"/>
+<script src="{% static 'market/js/goodsinfo.js' %}" type="text/javascript" charset="utf-8"></script>
+{% endblock linkscript %}
+
+{% block base %}
+<div id="goodsinfo">
+	<img id="proimg" src="{{goodsinfo.productimg}}"/>
+	<p><b id="protitle">{{goodsinfo.productlongname}}</b></p>
+	<p id="proprice">￥{{goodsinfo.price}}</p>
+	<p id="comtitle">商品评论</p>
+	<hr id="hr1" />
+	{% for comment in comments %}
+	<div id="comdiv">
+		<p id="comname">{{comment.userName}}:</p>
+		<p id="comtext">{{comment.comment}}</p>
+	</div>
+	<hr id="hr2" />
+	{% endfor %}
+</div>
+{% endblock %}
+

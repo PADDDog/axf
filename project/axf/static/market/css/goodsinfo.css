@@ -1,0 +1,60 @@
+#goodsinfo{
+	margin-top: 1.5rem;
+	margin-bottom: 1.5rem;
+}
+
+#proimg{
+	width: 10rem;
+	height: 10rem;
+}
+
+#protitle{
+	font-size: 0.8rem;
+	font-family:"宋体";
+}
+
+#proprice{
+	font-size: 0.5rem;
+}
+
+#hr1{
+	border:none;border-top:0.08rem double red;
+}
+
+#comtitle{
+	margin-top: 1rem;
+	font-size: 0.6rem;
+	text-align: center;
+}
+
+#comdiv{
+	margin: 0.1rem;
+	border-style: solid;
+	border-color: #66AFE9;
+	border-width: 0.1rem;
+}
+
+#hr2{
+	border:none;border-top:0.08rem double darkseagreen;
+}
+
+#comtext{
+	font-size: 0.5rem;
+}
+
+footer .home span{
+    background:url(/static/main/img/home.png) no-repeat;
+    background-size:0.513889rem;
+}
+footer .market span{
+    background:url(/static/main/img/market.png) no-repeat;
+    background-size:0.513889rem;
+}
+footer .cart span{
+    background:url(/static/main/img/cart.png) no-repeat;
+    background-size:0.513889rem;
+}
+footer .mine span{
+    background:url(/static/main/img/mine.png) no-repeat;
+    background-size:0.513889rem;
+}

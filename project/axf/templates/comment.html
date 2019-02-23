@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block linkscript%}
+    <link rel="stylesheet" type="text/css" href="{% static 'mine/css/comment.css' %}" />
+    <script type="text/javascript" charset="utf-8" src="{% static 'mine/js/comment.js' %}" ></script>
+{% endblock linkscript%}
+
+{% block header %}
+待用户评论
+{% endblock %}
+
+{% block base %}
+<div id="comment">
+	<a href="/mine/">《返回</a>
+    {% for product in products %}
+        <ul id="{{product.productid}}ul">
+        	<li class="orderid">订单号：{{ product.orderid }}</li>
+            <li class="name">商品名称：{{ product.name }}</li>
+        	<img class="img" src="{{product.img}}" />
+        	<li class="num">商品数量：{{ product.num }}</li>
+        	<li class="price">商品价格：{{ product.price }}</li>
+        	<hr size="3px" color="#0000FF" />
+        	<form action="/didcomment/">
+        		<span>评论内容：</span>
+        		<input id="{{product.productid}}text" type="text" style="width: 100%;" value="默认好评"/>
+        		<input id="{{product.productid}}" ord="{{product.orderid}}" class="but" type="button" value="提交"/>
+        	</form>
+        	<hr size="3px" color="black" />
+        </ul>
+    {% endfor %}
+</div>
+
+
+{% endblock %}

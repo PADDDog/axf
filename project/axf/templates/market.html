@@ -1,0 +1,94 @@
+{% extends 'base.html'%}
+{% load staticfiles %}
+
+{% block linkscript %}
+<link rel="stylesheet" type="text/css" href="{% static 'market/css/market.css' %}"/>
+<script src="{% static 'market/js/market.js' %}" type="text/javascript" charset="utf-8"></script>
+{% endblock linkscript %}
+
+{% block header %}
+    {{ typeN }}
+{% endblock %}
+
+{% block base %}
+    <div id="markets">
+        <!-- 左侧分类栏-->
+        <aside>
+            <menu>
+                <ul>
+                <!-- 获取分类名-->
+                    {% for item in leftSlider %}
+                            <li class="typeLi">
+                            <span class="yellowSlide"></span>
+                                <!--链接各分类商品-->
+                            <a href="/market/{{ item.typeid }}/0/0/">{{ item.typename }}</a>
+                            </li>
+                    {% endfor %}
+
+                </ul>
+            </menu>
+        </aside>
+        <!--右侧显示框-->
+        <section>
+            <nav>
+                <ul>
+                    <!--排序选择栏-->
+                    <li><span id="alltypebtn">全部类型<span class="glyphicon glyphicon-chevron-down" style="font-weight: 100"></span></span></li>
+                    <li><span id="showsortbtn">综合排序<span class="glyphicon glyphicon-chevron-down" style="font-weight: 100"></span></span></li>
+                </ul>
+            </nav>
+            
+            <!--商品框-->
+            <menu>
+                <ul>
+                	
+                <!--商品条目-->
+                    {% for item in productList %}
+                        <li>
+                            <a href="/goodsinfo/{{item.productid}}/">
+                        <img src="{{item.productimg}}" /><!--商品图片-->
+                        <article class="shoppingInfo">
+                            <h6>{{item.productlongname}}</h6><!--商品名字-->
+                            <!--商品是否精选、以及买一赠一-->
+                            <p class="detailTag"><span>精选</span><span>{{item.pedesc}}</span></p>
+                            <span class="unit">{{item.specifics}}</span><!--规格-->
+                            <p class="price"><span>￥{{item.price}}</span><s><span>￥{{item.marketprice}}</span></s></p><!--商品现价、原价-->
+                        </article>
+                    </a>
+                    <section style="margin-bottom: 0.2rem;margin-right: 0.2rem">
+                        <!--加入购物车数量-->
+                        <button ga="{{ item.productid }}" class="subShopping" style="display: none" >-</button>
+                        <span id="{{ item.productid }}" style="color: red;display: none">{{ item.productnum }}</span>
+						<button ga="{{item.productid}}" class="addShopping">+</button>
+					</section>
+                        </li>
+                    {% endfor %}
+                </ul>
+                <!-- 分类-->
+                <div id="typediv">
+                	<div>
+                    {% for item in childNameList %}
+                        <a href="/market/{{categoryid}}/{{item.childId}}/0"><span>{{ item.childName }}</span></a>
+                    {% endfor %}
+					</div>
+                </div>
+                <div id="sortdiv">
+                    <div>
+                        <a class="sorta" href="/market/{{ categoryid }}/{{ cid }}/0"><span>综合排序</span></a>
+                        <a class="sorta" href="/market/{{ categoryid }}/{{ cid }}/1"><span>销量排序</span></a>
+                        <a class="sorta" href="/market/{{ categoryid }}/{{ cid }}/2"><span>价格降序</span></a>
+                        <a class="sorta" href="/market/{{ categoryid }}/{{ cid }}/3"><span>价格升序</span></a>
+                    </div>
+                </div>
+            </menu>
+            
+            
+            
+            
+            
+            
+            
+            
+        </section>
+    </div>
+{% endblock base %}

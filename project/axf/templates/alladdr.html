@@ -1,0 +1,42 @@
+{% extends 'base.html'%}
+{% load staticfiles %}
+
+{% block linkscript %}
+<link rel="stylesheet" type="text/css" href="{% static 'mine/css/alladdr.css' %}"/>
+<script src="{% static 'mine/js/alladdr.js' %}" type="text/javascript" charset="utf-8"></script>
+{% endblock linkscript %}
+
+{% block header %}
+收货人信息
+{% endblock %}
+
+{% block base %}
+<div id="aladdr">
+	<div id="toph">
+		
+	</div>
+    <span class="back">《返回</span>
+	{% for addr in addrList %}
+	<section  id="{{addr.id}}id" class="selectaddr" ga = "{{ addr.id }}">
+			<ul>
+				<li>
+                    <div class="clear">
+                        <p class="infoJustify">收货人:<span>{{addr.consigneeName}}</span></p>
+                    </div>
+                </li>
+				<li>
+                    <div class="clear">
+                        <p class="infoJustify" >电话:<span>{{ addr.consigneeTel }}</span><a id="{{addr.id}}" class="deladdr">删除</a></p>
+                    </div>
+                </li>
+				<li>
+                    <div class="clear"><p class="infoJustify">收货地址:<span>{{ addr.consigneeAddr }}</span></p>
+                    </div>
+                </li>
+			</ul>
+	</section>
+	{% endfor %}
+    <a href="/consignee/" ><div class="add">添加新地址</div></a></p>
+	
+</div>
+{% endblock %}

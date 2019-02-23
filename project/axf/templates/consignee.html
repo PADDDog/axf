@@ -1,0 +1,38 @@
+{% extends 'base.html'%}
+{% load staticfiles %}
+
+{% block linkscript %}
+<link rel="stylesheet" type="text/css" href="{% static 'cart/css/consignee.css' %}"/>
+<script src="{% static 'cart/js/consignee.js' %}" type="text/javascript" charset="utf-8"></script>
+{% endblock linkscript %}
+
+{% block header %}
+收货人信息
+{% endblock %}
+
+{% block base %}
+
+<div style="margin-top: 1.5rem;">
+	<form action="/consignee/" method="post" id="theform">
+		<div class="box">
+			<span class="input-group-addon input" style="width: 1.5rem;padding-top:0.5rem ;">姓名</span>
+			<input id="conname" type="text" class="form-control input" name="conname" placeholder="请输入收货人姓名"/>
+		</div>
+		<span id="noname" class="isno">收货人姓名不能为空</span>
+		<div class="box">
+			<span class="input-group-addon input" style="width: 1.5rem;padding-top:0.5rem ;">电话</span>
+			<input id="conphone" type="text" class="form-control input" name="conphone" placeholder="请输入收货人电话"/>
+		</div>
+		<span id="nophone" class="isno">收货人电话不能为空</span>
+		<div class="box">
+			<span class="input-group-addon input" style="width: 1.5rem;padding-top:0.5rem ;">地址</span>
+			<input id="conaddr" type="text" class="form-control input" name="conaddr" placeholder="请输入收货地址"/>
+		</div>
+		<span id="noaddr" class="isno">收货人地址不能为空</span>
+		<input type="button" id="subm" class="form-control" value="确认" style="height: 1.5rem;font-size: 1rem;"/>
+	</form>
+</div>
+
+{% endblock %}
+
+

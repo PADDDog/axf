@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block linkscript%}
+    <link rel="stylesheet" type="text/css" href="{% static 'mine/css/login.css' %}" />
+    <script type="text/javascript" charset="utf-8" src="{% static 'mine/js/login.js' %}" ></script>
+{% endblock linkscript%}
+
+
+{% block base %}
+<div id="login">
+    <a href="/mine/"><p>&lt;返回</p></a>
+    <div id="box">
+        <form action="/login/" method="post">
+        {% csrf_token %}
+            <div style="display: flex;">
+                <label style="display: inline-flex;"><span class="input-group-addon input span" style="display: inline-flex; ">账号</span>{{ form.username }}
+                <br/>
+                {% if error.username.0 %}
+                    <span>{{ error.username.0 }}</span>
+                {% endif %}</label>
+            </div>
+            <div style="display: flex;">
+                <label style="display: inline-flex;"><span class="input-group-addon input span" style="display: inline-flex;">密码</span>{{ form.passwd }}
+                <br/>
+                {% if error.passwd.0 %}
+                    <span>{{ error.passwd.0 }}</span>
+                {% endif %}</label>
+            </div>
+            <div>
+                <input type="submit" value="登录" class="subm">
+            </div>
+        </form>
+    <div>
+        {% if second %}
+        <span>账户名或密码输入错误,请重新输入</span>
+        {% endif %}
+    </div>
+    </div>
+</div>
+{% endblock base %}
+
+
+
+
+

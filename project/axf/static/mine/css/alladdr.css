@@ -1,0 +1,41 @@
+#aladdr{
+	margin-top: 1.55rem;
+}
+.selectaddr{
+	border: 0.1rem double darkorange;
+	background-color: azure;
+}
+.deladdr{
+    float: right;
+    color: red;
+}
+.back{
+    font-size: 0.5rem;
+}
+.add{
+    color: black;
+    width: 100%;
+    height: 1.5rem;
+    text-align: center;
+    font-size: 1rem;
+    border: 0.1rem double darkorange;
+	background-color: azure;
+}
+
+/*页脚格式*/
+footer .home span{
+    background:url(/static/main/img/home.png) no-repeat;
+    background-size:0.513889rem;
+}
+footer .market span{
+    background:url(/static/main/img/market.png) no-repeat;
+    background-size:0.513889rem;
+}
+footer .cart span{
+    background:url(/static/main/img/cart.png) no-repeat;
+    background-size:0.513889rem;
+}
+footer .mine span{
+    background:url(/static/main/img/mine1.png) no-repeat;
+    background-size:0.513889rem;
+}

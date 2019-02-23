@@ -1,0 +1,62 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="stylesheet" href="{% static 'main/css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'main/css/swiper.min.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'main/css/reset.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'main/css/base.css' %}"/>
+    <!--<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>-->
+    <script src="{% static 'main/js/jquery-3.1.1.min.js' %}" type="text/javascript" charset="utf-8"></script>
+    <script src="{% static 'main/js/bootstrap.min.js' %}" type="text/javascript" charset="utf-8"></script>
+    <script src="{% static 'main/js/swiper.min.js' %}" type="text/javascript" charset="utf-8"></script>
+    <script src="{% static 'main/js/base.js' %}" type="text/javascript" charset="utf-8"></script>
+    {% block linkscript %}
+
+    {% endblock linkscript %}
+    
+</head>
+<body>
+	<header>
+    <div class="headerDiv">
+        {% block header %}
+        {% endblock %}
+    </div>
+	</header>
+	<div>
+		{% block base %}
+		
+		{% endblock base %}
+	</div>
+	
+	<footer>
+		<a class="home" href="/home/">
+			<dl>
+				<dt><span id="home" ></span></dt>
+				<dd>主页</dd>
+			</dl>
+		</a>
+		<a class="market" href="/market/104749/0/0">
+			<dl>
+				<dt><span id="market"></span></dt>
+				<dd>超市</dd>
+			</dl>
+		</a>
+		<a class="cart" href="/cart/">
+			<dl>
+				<dt><span id="cart"></span></dt>
+				<dd>购物车</dd>
+			</dl>
+		</a>
+		<a class="mine" href="/mine/">
+			<dl>
+				<dt><span id="mine"></span></dt>
+				<dd>我的</dd>
+			</dl>
+		</a>
+	</footer>
+</body>
+</html>

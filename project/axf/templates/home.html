@@ -1,0 +1,132 @@
+{% extends 'base.html'%}
+{% load staticfiles %}
+
+{% block linkscript %}
+<link rel="stylesheet" type="text/css" href="{% static 'home/css/home.css' %}"/>
+<script src="{% static 'home/js/home.js' %}" type="text/javascript" charset="utf-8"></script>
+{% endblock linkscript %}
+
+{% block header %}
+    爱鲜蜂闪送超市
+{% endblock %}
+
+{% block base %}
+    <div id="homes">
+    <!-- 顶部大轮播 -->
+    <section class="swiper-container" id="topSwiper">
+        <div class="swiper-wrapper">
+            {% for item in wheels %}
+                <div class="swiper-slide">
+                <a href="#">
+                    <img src="{{ item.img }}">
+                </a>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets"></div>
+    </section>
+
+    <section class="topMenu">
+    <!--大轮播下的导航栏-->
+        <nav>
+            <ul>
+                {% for item in navs %}
+                    <li><a>
+                        <img src="{{ item.img }}">
+                        <span>{{ item.name }}</span>
+                    </a></li>
+                {% endfor %}
+            </ul>
+        </nav>
+        <!--导航下面的每日必买-->
+        <menu class="swiper-container swiperMenu" id="swiperMenu">
+            <ul class="swiper-wrapper">
+                {% for item in mustbuyList %}
+                    <li class="swiper-slide"><a><img src="{{ item.img }}"></a></li>
+                {% endfor %}
+            </ul>
+        </menu>
+    </section>
+
+    <!--便利店-->
+    <section class="CVS">
+        <h2>
+            <img src="{{shop1.img}}" alt="{{shop1.name}}"/><!--便利店标题图片-->
+        </h2>
+        <!--便利店第一块-->
+        <fieldset>
+            {% for x in shop2 %}
+                <a href="#">
+                    <img src="{{x.img}}" alt="{{x.name}}"/>
+                </a>
+            {% endfor %}
+        </fieldset>
+        <!--便利店第二块-->
+        <ul>
+            {% for x in shop3 %}
+                <li>
+                    <a href="#">
+                        <img src="{{x.img}}" />
+                        <span>{{x.name}}</span>
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+        <!--便利店第三块-->
+        <ol>
+            {% for x in shop4 %}
+                <li><a href="#"><img src="{{x.img}}" alt="{{x.name}}"/></a></li>
+            {% endfor %}
+        </ol>
+    </section>
+
+
+    <!--其余主要信息-->
+    <section class="mainInfo">
+        {% for item in mainList%}
+            <section>
+                <h3>
+                    {{item.name}}
+                    <a href="/market/{{ item.categoryid }}/0/0">更多></a>
+                    <span></span>
+                </h3>
+                <div>
+                    <a href="#"><img src="{{item.img}}" alt="item.name" width="380px" height="100px"/></a>
+                </div>
+                <ul>
+                    <li>
+                        <a href="#">
+                            <img src="{{item.img1}}"/>
+                            <span class="description">{{item.longname1}}</span>
+                            <span>¥{{item.price1}}</span>
+                            <s>¥{{item.marketprice1}}</s>
+                        </a>
+                        <button><span>&#43;</span></button>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="{{item.img2}}"/>
+                            <span class="description">{{item.longname2}}</span>
+                            <span>¥{{item.price2}}</span>
+                            <s>¥{{item.marketprice2}}</s>
+                        </a>
+                        <button><span>&#43;</span></button>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="{{item.img3}}"/>
+                            <span class="description">{{item.longname3}}</span>
+                            <span>¥{{item.price3}}</span>
+                            <s>¥{{item.marketprice3}}</s>
+                        </a>
+                        <button><span>&#43;</span></button>
+                    </li>
+                </ul>
+            </section>
+        {% endfor %}
+    </section>
+
+
+    </div>
+{% endblock %}
+

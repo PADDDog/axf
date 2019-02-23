@@ -1,0 +1,55 @@
+/*页脚格式*/
+footer .home span{
+    background:url(/static/main/img/home.png) no-repeat;
+    background-size:0.513889rem;
+}
+footer .market span{
+    background:url(/static/main/img/market.png) no-repeat;
+    background-size:0.513889rem;
+}
+footer .cart span{
+    background:url(/static/main/img/cart1.png) no-repeat;
+    background-size:0.513889rem;
+}
+footer .mine span{
+    background:url(/static/main/img/mine.png) no-repeat;
+    background-size:0.513889rem;
+}
+.input{
+    font-size: 0.5rem;
+    height: 1.5rem;
+    background-color: azure;
+    display: inline-flex;
+}
+.box{
+	display: flex;
+}
+
+.isno{
+	display: none;
+	text-align: center;
+	color: red;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
