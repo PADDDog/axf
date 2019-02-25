@@ -201,6 +201,21 @@ def register(request):
         #创建并保存用户数据到数据库
         user = User.createuser(userAccount,userPasswd,userName,userPhone,userAdderss,userImg,userRank,userToken)
         user.save()
+
+        #保存一个地址信息
+        oneAddr = Consignee()
+        oneAddr.userAccount = userAccount
+        oneAddr.consigneeName = userName
+        oneAddr.consigneeTel = userPhone
+        oneAddr.consigneeAddr = userAdderss
+        oneAddr.save()
+
+        defaultaddr = Defaultaddr()
+        defaultaddr.userAccount = oneAddr.userAccount
+        defaultaddr.defaultaddr = oneAddr.id
+        defaultaddr.save()
+
+
         #保存userName，userToken到session里
         request.session["username"] = userName
         request.session["token"] = userToken
